@@ -44,4 +44,59 @@ public class ListaEstatica {
 			tamanho--;
 		}
 	}
+	
+	public boolean estaVazia() {
+		return (tamanho == 0);
+		/*
+		if (tamanho == 0) {
+			return true;
+		}else {
+			return false;
+		}
+		*/
+	}
+	
+	public String exibir() {
+		String str = "[";
+		for (int i=0; i < tamanho; i++) {
+			str += info[i]+", ";
+		}
+		str += "]";
+		return str;
+	}
+	
+	public ListaEstatica copiar() {
+		ListaEstatica nova = new ListaEstatica();
+		for (int i=0; i < tamanho; i++) {
+			nova.inserir(info[i]);
+		}
+		return nova;
+	}
+	
+	public void concatenar(ListaEstatica outra) {
+		for (int i=0; i < outra.getTamanho(); i++) {
+			this.inserir(outra.pegar(i));
+		}
+	}
+	
+	public int getTamanho() {
+		return tamanho;
+	}
+	
+	public int pegar(int posicao) {
+		if (posicao < 0 || posicao >= tamanho) {
+			throw new ArrayIndexOutOfBoundsException("Posição inválida "+posicao);
+		}
+		return info[posicao];
+	}
+	
+	public ListaEstatica dividir() {
+		ListaEstatica nova = new ListaEstatica();
+		int metade = tamanho/2;
+		for (int i=metade; i < tamanho; i++) {
+			nova.inserir(info[i]);
+		}
+		tamanho = metade;
+		return nova;
+	}
 }
