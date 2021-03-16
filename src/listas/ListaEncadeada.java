@@ -8,8 +8,25 @@ public class ListaEncadeada implements Lista {
 	
 	@Override
 	public void inserir(int valor) {
-		// TODO Auto-generated method stub
-
+		// inserção ao final, colocando numa ordem mais normal/natural
+		NoLista novo = new NoLista();
+		novo.setInfo(valor);
+		if (this.estaVazia()) {
+			primeiro = novo;
+		}
+		else {
+			ultimo.setProximo(novo);
+		}
+		ultimo = novo;
+		qtdeElem++;
+		
+		/* inserção no início conforme o slide, colocando na ordem inversa
+		NoLista novo = new NoLista( );
+		novo.setInfo(valor);
+		novo.setProximo(primeiro);
+		this.primeiro = novo;
+		qtdeElem++;
+		*/
 	}
 
 	@Override
@@ -26,14 +43,18 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public boolean estaVazia() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.primeiro == null);
 	}
 
 	@Override
 	public String exibir() {
-		// TODO Auto-generated method stub
-		return null;
+		String str = "[";
+		NoLista p = primeiro;
+		while (p != null) { //enquanto p ≠ null faça
+		   str += p.getInfo()+", "; //print(p.info);
+		   p = p.getProximo();  // avança o p
+		}
+		return str+"]";
 	}
 
 	@Override
