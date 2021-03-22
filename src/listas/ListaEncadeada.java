@@ -59,11 +59,11 @@ public class ListaEncadeada implements Lista {
 		 */
 		NoLista anterior = null;
 		NoLista p = primeiro;
-		while (p != null && p.getInfo()!=valor) {
+		while (p != null && p.getInfo() != valor) {
 			anterior = p;
 			p = p.getProximo();
 		}
-		if (p!=null) {
+		if (p != null) {
 			qtdeElem--;
 			if (anterior == null) {
 				primeiro = p.getProximo();
@@ -74,7 +74,7 @@ public class ListaEncadeada implements Lista {
 				ultimo = anterior;
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -95,32 +95,72 @@ public class ListaEncadeada implements Lista {
 
 	@Override
 	public Lista copiar() {
-		// TODO Auto-generated method stub
-		return null;
+		ListaEncadeada nova = new ListaEncadeada();
+		NoLista p = primeiro;
+		while (p != null) {
+			nova.inserir(p.getInfo());
+			p = p.getProximo();
+		}
+
+		return nova;
 	}
 
 	@Override
 	public void concatenar(Lista outra) {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i < outra.getTamanho(); i++) {
+			this.inserir(outra.pegar(i));
+		}
 	}
 
 	@Override
 	public int getTamanho() {
-		// TODO Auto-generated method stub
-		return 0;
+		return qtdeElem;
 	}
 
 	@Override
 	public int pegar(int posicao) {
-		// TODO Auto-generated method stub
-		return 0;
+		if (posicao < 0 || posicao >= this.getTamanho()) {
+			throw new IndexOutOfBoundsException("Posição inválida " + posicao);
+		}
+		NoLista p = primeiro;
+		int conta = 0;
+		while (p != null) {
+			if (posicao == conta) {
+				return p.getInfo();
+			}
+			conta++;
+			p = p.getProximo();
+		}
+		// Nunca deveria chegar aqui....
+		return Integer.MIN_VALUE;
+		/*
+		 * p = this.primeiro; for (int i=0; i != posicao; i++) { p = p.getProximo(); }
+		 * return p.getInfo();
+		 */
 	}
 
 	@Override
 	public Lista dividir() {
-		// TODO Auto-generated method stub
-		return null;
+		ListaEncadeada metadeLista = new ListaEncadeada();
+		NoLista itemAtual = this.primeiro;
+		int index = 0;
+		int indiceMetadeLista = this.getTamanho() / 2 - 1;
+
+		while (itemAtual != null) {
+			if (index == indiceMetadeLista) {
+				this.ultimo = itemAtual;
+			}
+
+			if (index > indiceMetadeLista) {
+				metadeLista.inserir(itemAtual.getInfo());
+				this.qtdeElem--;
+			}
+
+			itemAtual = itemAtual.getProximo();
+			index++;
+		}
+		this.ultimo.setProximo(null);
+		return metadeLista;
 	}
 
 }
