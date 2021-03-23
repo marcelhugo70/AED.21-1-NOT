@@ -1,16 +1,16 @@
 package listas;
 
-public class ListaEstatica implements Lista {
-	private int[] info;
+public class ListaEstatica<T> implements Lista<T> {
+	private T[] info;
 	private int tamanho;
 	
 	public ListaEstatica() {
-		info = new int[10];
+		info = (T[]) new Object[10];
 		tamanho = 0;
 	}
 	
 	@Override
-	public void inserir(int valor) {
+	public void inserir(T valor) {
 		if (tamanho == info.length) {
 			this.redimensionar();
 		}
@@ -19,7 +19,7 @@ public class ListaEstatica implements Lista {
 	}
 	
 	private void redimensionar() {
-		int[] novo = new int[tamanho+10];
+		T[] novo = (T[]) new Object[tamanho+10];
 		
 		for (int i=0; i < tamanho; i++) {
 			novo[i] = info[i];
@@ -28,7 +28,7 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public int buscar(int valor) {
+	public int buscar(T valor) {
 		for (int i=0; i < tamanho; i++) {
 			if (info[i] == valor) {
 				return i;
@@ -38,7 +38,7 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public void retirar(int valor) {
+	public void retirar(T valor) {
 		int posicao = this.buscar(valor);
 		if (posicao != -1) {
 			for (int i=posicao; i < tamanho-1; i++) {
@@ -71,8 +71,8 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public Lista copiar() {
-		Lista nova = new ListaEstatica();
+	public Lista<T> copiar() {
+		Lista<T> nova = new ListaEstatica<>();
 		for (int i=0; i < tamanho; i++) {
 			nova.inserir(info[i]);
 		}
@@ -80,7 +80,7 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public void concatenar(Lista outra) {
+	public void concatenar(Lista<T> outra) {
 		for (int i=0; i < outra.getTamanho(); i++) {
 			this.inserir(outra.pegar(i));
 		}
@@ -92,7 +92,7 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public int pegar(int posicao) {
+	public T pegar(int posicao) {
 		if (posicao < 0 || posicao >= tamanho) {
 			throw new ArrayIndexOutOfBoundsException("Posição inválida "+posicao);
 		}
@@ -100,8 +100,8 @@ public class ListaEstatica implements Lista {
 	}
 	
 	@Override
-	public Lista dividir() {
-		Lista nova = new ListaEstatica();
+	public Lista<T> dividir() {
+		Lista<T> nova = new ListaEstatica<>();
 		int metade = tamanho/2;
 		for (int i=metade; i < tamanho; i++) {
 			nova.inserir(info[i]);

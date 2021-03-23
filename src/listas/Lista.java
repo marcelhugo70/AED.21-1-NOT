@@ -1,25 +1,25 @@
 package listas;
 
-public interface Lista {
+public interface Lista<T> {
 
-	void inserir(int valor);
+	void inserir(T valor);
 
-	int buscar(int valor);
+	int buscar(T valor);
 
-	void retirar(int valor);
+	void retirar(T valor);
 
 	boolean estaVazia();
 
 	String exibir();
 
-	Lista copiar();
+	Lista<T> copiar();
 
-	void concatenar(Lista outra);
+	void concatenar(Lista<T> outra);
 
 	int getTamanho();
 
-	int pegar(int posicao);
+	T pegar(int posicao);
 
-	Lista dividir();
+	Lista<T> dividir();
 
 }
