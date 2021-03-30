@@ -1,10 +1,9 @@
 package listas;
 
-public class Teste1PilhaVetor {
+public class Teste1PilhaLista {
 
 	public static void main(String[] args) {
-		// a partir do código de Vinícius Manuel Martins
-		PilhaVetor<Integer> pilha = new PilhaVetor<Integer>(5);
+		PilhaLista<Integer> pilha = new PilhaLista<Integer>(5);
 		pilha.push(50);
 		pilha.push(40);
 		pilha.push(30);
@@ -31,4 +30,5 @@ public class Teste1PilhaVetor {
 			System.out.println(e.getMessage());
 		}
 	}
+
 }
