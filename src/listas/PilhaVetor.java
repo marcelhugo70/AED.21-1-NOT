@@ -59,4 +59,38 @@ public class PilhaVetor<T> implements Pilha<T> {
 		return str+"=topo]";
 	}
 
+	private int getTamanho() {
+		return this.size;
+	}
+	
+	private T get(int posicao) {
+		return this.data[posicao];
+	}
+	
+	
+	// Exercício de revisão para a prova
+	public int compara(PilhaVetor outra) {
+		if (this.getTamanho()<outra.getTamanho()) {
+			return -1;
+		}
+		if (this.getTamanho()>outra.getTamanho()) {
+			return 1;
+		}
+		// a partir desse ponto eu sei que as pilhas são do mesmo tamanho
+
+		/*
+		for (int i=0; i < this.size; i++) {
+			if (data[i] != outra.get(i)) {
+				return 1;
+			}
+		}
+		return 0;
+		*/
+		if (this.toString().equals(outra.toString())) {
+			return 0;
+		}
+		else {
+			return 1;
+		}
+	}
 }
