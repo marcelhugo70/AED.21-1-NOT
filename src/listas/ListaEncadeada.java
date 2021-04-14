@@ -46,7 +46,7 @@ public class ListaEncadeada<T> implements Lista<T> {
 	@Override
 	public void retirar(T valor) {
 		/*
-		 * NoLista anterior ← null; NoLista p ← primeiro;
+		 * NoLista anterior ← null; NoLista p ← primeiro;  
 		 * 
 		 * // procura nó que contém dado a ser removido, // guardando o anterior
 		 * enquanto (p ≠ null) e (p.info ≠ v) faça anterior ← p; p ← p.proximo;
