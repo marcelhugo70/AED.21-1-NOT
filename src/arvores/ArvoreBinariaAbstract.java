@@ -10,6 +10,10 @@ public abstract class ArvoreBinariaAbstract<T> {
 	protected void setRaiz(NoArvoreBinaria<T> raiz) {
 		this.raiz = raiz;
 	}
+	
+	protected NoArvoreBinaria<T> getRaiz(){
+		return this.raiz;
+	}
 
 	public boolean vazia() {
 		return (this.raiz == null);
