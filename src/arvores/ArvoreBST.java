@@ -60,8 +60,9 @@ public class ArvoreBST<T extends Comparable> extends ArvoreBinariaAbstract<T> {
 		} else {  // 2 filhos
 			NoArvoreBST<T> noSucessor = noRemover.getNoSucessor();
 			//NoArvoreBST<T> paiNoSucessor = (NoArvoreBST<T>) this.descobrirPai(noSucessor);
-			noRemover.setInfo(noSucessor.getInfo());
+			T info = noSucessor.getInfo();
 			this.retirar(noSucessor);
+			noRemover.setInfo(info);
 		}
 
 	}
