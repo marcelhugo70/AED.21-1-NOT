@@ -16,6 +16,17 @@ public class TesteDaArvoreBST {
 		arvore.inserir(72);
 		arvore.inserir(99);
 		System.out.println(arvore.toString());
+		arvore.retirar(20);
+		System.out.println(arvore);
+		arvore.retirar(50);
+		System.out.println(arvore);
+		arvore.retirar(72);
+		System.out.println(arvore);
+		arvore.retirar(32);
+		System.out.println(arvore);
+		arvore.retirar(41);
+		System.out.println(arvore);
+		
 	}
 
 }
