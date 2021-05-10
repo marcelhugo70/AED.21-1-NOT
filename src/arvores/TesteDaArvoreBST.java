@@ -15,7 +15,23 @@ public class TesteDaArvoreBST {
 		arvore.inserir(91);
 		arvore.inserir(72);
 		arvore.inserir(99);
+		arvore.inserir(72);
 		System.out.println(arvore.toString());
+		
+		System.out.println("Menor = "+arvore.encontraMenor());
+		System.out.println("Maior = "+arvore.encontraMaior());
+		System.out.println("Antecessores -------");
+		System.out.println(arvore.descobreAntecessor(11));
+		System.out.println(arvore.descobreAntecessor(50));
+		System.out.println(arvore.descobreAntecessor(20));
+		System.out.println(arvore.descobreAntecessor(72));
+		System.out.println(arvore.descobreAntecessor(100));
+		System.out.println("Sucessores -------");
+		System.out.println(arvore.descobreSucessor(11));
+		System.out.println(arvore.descobreSucessor(50));
+		System.out.println(arvore.descobreSucessor(20));
+		System.out.println(arvore.descobreSucessor(72));
+		System.out.println(arvore.descobreSucessor(100));
 		arvore.retirar(20);
 		System.out.println(arvore);
 		arvore.retirar(50);
