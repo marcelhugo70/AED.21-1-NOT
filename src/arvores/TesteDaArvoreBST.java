@@ -17,7 +17,9 @@ public class TesteDaArvoreBST {
 		arvore.inserir(99);
 		arvore.inserir(72);
 		System.out.println(arvore.toString());
-		
+		System.out.println(arvore.toStringOrdered());
+		System.out.println(arvore.toStringOrdered2());
+		System.out.println(arvore.toStringOrdered3());
 		System.out.println("Menor = "+arvore.encontraMenor());
 		System.out.println("Maior = "+arvore.encontraMaior());
 		System.out.println("Antecessores -------");

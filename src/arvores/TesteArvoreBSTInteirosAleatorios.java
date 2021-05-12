@@ -10,7 +10,7 @@ public class TesteArvoreBSTInteirosAleatorios {
 		int aux = 0;
 		ArvoreBST<Integer> arvore = new ArvoreBST<Integer>();
 		Scanner teclado = new Scanner(System.in);
-		System.out.println("Insira q quantidade de nós da arvore:");
+		System.out.println("Insira a quantidade de nós da arvore:");
 		qtd = teclado.nextInt();
 		Random gerador = new Random();
 		if (qtd > 0) {

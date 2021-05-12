@@ -44,7 +44,7 @@ public class ArvoreBST<T extends Comparable> extends ArvoreBinariaAbstract<T> {
 			return pai;
 		}
 	}
-	
+
 	public NoArvoreBST<T> descobreSucessor(T elemento) {
 		NoArvoreBST<T> noElemento = this.buscar(elemento);
 		if (noElemento == null) {
@@ -136,4 +136,38 @@ public class ArvoreBST<T extends Comparable> extends ArvoreBinariaAbstract<T> {
 
 	}
 
+	
+	public String toStringOrdered() { 
+		if (this.vazia()) {
+			return "";
+		} else {
+			return ((NoArvoreBST)this.getRaiz()).imprimeEmOrdem();
+		}
+	}
+	 
+
+	public String toStringOrdered2() {
+		NoArvoreBST<T> menor = encontraMenor();
+		String menorString = "";
+		while (menor != null) {
+			menorString += " " + menor.toString();
+			menor = descobreSucessor(menor.getInfo());
+		}
+		return menorString;
+	}
+
+	public String toStringOrdered3() { // acha menor, ordena sucessores
+		String str = "( ";
+		if (this.vazia()) {
+			return null;
+		}
+		NoArvoreBST<T> aux = encontraMenor(); // acha o menor
+		str = str + aux + " , ";
+		while (this.descobreSucessor(aux.getInfo()) != null) {
+			str = str + this.descobreSucessor(aux.getInfo()) + " , ";
+			aux = descobreSucessor(aux.getInfo());
+		}
+		str = str + " )";
+		return str;
+	}
 }

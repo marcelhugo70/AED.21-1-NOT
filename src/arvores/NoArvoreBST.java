@@ -70,4 +70,17 @@ public class NoArvoreBST<T extends Comparable> extends NoArvoreBinaria<T> {
 		}
 		return noSucessor;
 	}
+
+	// ordem simétrica ou central ou em ordem
+	public String imprimeEmOrdem() {
+		String impressao = "";
+		if (this.getEsq() != null) {
+			impressao += ((NoArvoreBST)this.getEsq()).imprimeEmOrdem();
+		} 
+		impressao += this.getInfo() + " ";
+		if (this.getDir() != null) {
+			impressao += ((NoArvoreBST)this.getDir()).imprimeEmOrdem();
+		} 
+		return impressao;
+	}
 }
