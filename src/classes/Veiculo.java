@@ -6,6 +6,8 @@ public class Veiculo implements Comparable<Veiculo> {
 	private int ano;
 	private String proprietario;
 
+	public Veiculo() {
+	}
 
 	public Veiculo(String placa, String modelo, int ano, String proprietario) {
 		this.placa = placa;
